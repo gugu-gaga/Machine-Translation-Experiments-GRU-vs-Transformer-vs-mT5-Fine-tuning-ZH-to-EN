@@ -105,6 +105,7 @@ cd ..
 #     (a text file with one checkpoint path per line).
 #   - --beams evaluates multiple decoding beam sizes (e.g., 1 and 5).
 #   - --max_examples dumps some examples for qualitative inspection.
+# When testing, please download the trained model in advance and modify the model loading directory in inference.py
 python inference.py \
   --outdir final_test_eval \
   --beams 1 5 \
