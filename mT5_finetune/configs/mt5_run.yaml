@@ -1,0 +1,49 @@
+model:
+  name_or_path: /data/250010012/mt5_small_offline
+
+data:
+  train_jsonl: /data/250010012/mT5_finetune/data/raw/train_100k.jsonl
+  valid_jsonl: /data/250010012/mT5_finetune/data/raw/valid.jsonl
+  test_jsonl:  /data/250010012/mT5_finetune/data/raw/test.jsonl
+
+  # fallback（如果你不想用 jsonl）
+  train_src_txt: /data/250010012/mT5_finetune/data/clean/train.src
+  train_tgt_txt: /data/250010012/mT5_finetune/data/clean/train.tgt
+  valid_src_txt: /data/250010012/mT5_finetune/data/clean/valid.src
+  valid_tgt_txt: /data/250010012/mT5_finetune/data/clean/valid.tgt
+  test_src_txt:  /data/250010012/mT5_finetune/data/clean/test.src
+  test_tgt_txt:  /data/250010012/mT5_finetune/data/clean/test.tgt
+
+  prefix: "translate Chinese to English: "
+  max_source_length: 128
+  max_target_length: 128
+
+train:
+  output_dir: /data/250010012/mT5_finetune/runs/
+  max_steps: 100000
+  seed: 42
+
+  # Effective batch = batch_size_per_gpu * world_size * grad_accum
+  batch_size_per_gpu: 4
+  grad_accum: 8
+
+  lr: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+
+  bf16: true
+  max_grad_norm: 1.0
+
+  log_steps: 50
+  eval_steps: 1000
+  save_topk: 3
+
+decode:
+  # 训练时 eval 我们强制 beam=1；这里保留给测试集 inference 用
+  num_beams_test: 4
+  max_new_tokens: 128
+  batch_size: 32
+
+eval:
+  sacrebleu_tokenize: 13a

@@ -1,0 +1,6 @@
+{
+  "best": {
+    "bleu": 12.073044980727106,
+    "path": "/data/250010012/mT5_finetune/runs/checkpoint-step99000-bleu12.0730"
+  }
+}

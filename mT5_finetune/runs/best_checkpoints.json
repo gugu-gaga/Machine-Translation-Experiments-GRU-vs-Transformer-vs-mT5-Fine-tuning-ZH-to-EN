@@ -1,0 +1,16 @@
+{
+  "topk": [
+    {
+      "bleu": 12.073044980727106,
+      "path": "/data/250010012/mT5_finetune/runs/checkpoint-step99000-bleu12.0730"
+    },
+    {
+      "bleu": 12.022003660114835,
+      "path": "/data/250010012/mT5_finetune/runs/checkpoint-step95000-bleu12.0220"
+    },
+    {
+      "bleu": 11.881429463083215,
+      "path": "/data/250010012/mT5_finetune/runs/checkpoint-step90000-bleu11.8814"
+    }
+  ]
+}

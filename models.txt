@@ -1,0 +1,14 @@
+gru1	./gru/runs/rnn_additive_tf05/checkpoints/best.pt
+gru2	./gru/runs/rnn_additive_tf1/checkpoints/best.pt
+gru3	./gru/runs/rnn_dot_tf05/checkpoints/best.pt
+gru4	./gru/runs/rnn_dot_tf1/checkpoints/best.pt
+gru5	./gru/runs/rnn_general_tf05/checkpoints/best.pt
+gru6	./gru/runs/rnn_general_tf1/checkpoints/best.pt
+transformer1	./transformer/runs/tfm_t0_baseline/checkpoints/best.pt
+transformer2	./transformer/runs/tfm_t1_pos_relative/checkpoints/best.pt
+transformer3	./transformer/runs/tfm_t2_norm_rms/checkpoints/best.pt
+transformer4	./transformer/runs/tfm_t3_big_batch/checkpoints/best.pt
+transformer5	./transformer/runs/tfm_t4_big_lr/checkpoints/best.pt
+transformer6	./transformer/runs/tfm_t5_small_scale/checkpoints/best.pt
+transformer7	./transformer/runs/tfm_t5_small_scale_final/checkpoints/best.pt
+mT5	./mT5_finetune/runs/checkpoint-step99000-bleu12.0730

@@ -1,0 +1,51 @@
+run:
+  root: runs
+  name: rnn_additive_tf05
+data:
+  train_src_ids: data/clean/train.src.ids
+  train_tgt_ids: data/clean/train.tgt.ids
+  valid_src_ids: data/clean/valid.src.ids
+  test_src_ids: data/clean/test.src.ids
+  valid_src_txt: data/clean/valid.src
+  test_src_txt: data/clean/test.src
+  valid_tgt_txt: data/clean/valid.tgt
+  test_tgt_txt: data/clean/test.tgt
+  spm_model: data/spm/spm_zh_en_16k.model
+  max_len: 128
+  pad_id: 3
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+  valid_tgt_ids: data/clean/valid.tgt.ids
+model:
+  vocab_size: 16000
+  emb_dim: 512
+  hidden_size: 512
+  num_layers: 2
+  dropout: 0.05
+  attn_type: additive
+  attn_dim: 512
+  emb_init_npy: data/spm/emb_init_fasttext_512.npy
+train:
+  seed: 42
+  deterministic: false
+  lr: 0.0005
+  max_steps: 20000
+  max_tokens_per_batch: 8000
+  clip_norm: 1.0
+  log_every: 50
+  eval_every: 1000
+  amp: true
+  autocast_dtype: bf16
+  tf_schedule:
+    type: warmup_then_constant
+    warmup_steps: 5000
+    ratio_after: 0.5
+decode:
+  max_new_tokens_eval: 256
+  eval_batch_size: 64
+  beam_batch_size: 16
+  len_penalty: 1.0
+eval:
+  sacrebleu_tokenize: 13a
+  num_examples: 5

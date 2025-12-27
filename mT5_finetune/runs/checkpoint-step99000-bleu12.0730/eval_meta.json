@@ -1,0 +1,8 @@
+{
+  "step": 99000,
+  "bleu": 12.073044980727106,
+  "signature": "tok:13a|sacrebleu:2.5.1",
+  "eval_seconds": 10.843230962753296,
+  "max_new_tokens": 128,
+  "note": "greedy eval (num_beams=1)"
+}

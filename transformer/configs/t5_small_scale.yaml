@@ -1,0 +1,58 @@
+run:
+  root: runs
+  name: tfm_t5_small_scale
+data:
+  train_src_ids: data/clean/train.src.ids
+  train_tgt_ids: data/clean/train.tgt.ids
+  valid_src_ids: data/clean/valid.src.ids
+  valid_tgt_ids: data/clean/valid.tgt.ids
+  test_src_ids: data/clean/test.src.ids
+  test_tgt_ids: data/clean/test.tgt.ids
+  valid_src_txt: data/clean/valid.src
+  valid_tgt_txt: data/clean/valid.tgt
+  test_src_txt: data/clean/test.src
+  test_tgt_txt: data/clean/test.tgt
+  spm_model: data/spm/spm_zh_en_16k.model
+  max_len: 128
+  pad_id: 3
+  unk_id: 0
+  bos_id: 1
+  eos_id: 2
+model:
+  vocab_size: 16000
+  d_model: 256
+  n_heads: 4
+  d_ff: 1024
+  n_layers: 4
+  dropout: 0.1
+  norm_type: layernorm
+  pos_type: sinusoidal
+  emb_init_npy: null
+train:
+  seed: 42
+  deterministic: false
+  max_steps: 20000
+  tokens_per_gpu: 8192
+  grad_accum: 4
+  amp: true
+  autocast_dtype: bf16
+  peak_lr: 0.0005
+  min_lr: 1.0e-05
+  warmup_steps: 4000
+  betas:
+  - 0.9
+  - 0.98
+  eps: 1.0e-09
+  weight_decay: 0.01
+  clip_norm: 1.0
+  label_smoothing: 0.1
+  log_every: 50
+  eval_every: 1000
+decode:
+  max_new_tokens_eval: 256
+  eval_batch_size: 64
+  beam_batch_size: 8
+  len_penalty: 1.0
+eval:
+  sacrebleu_tokenize: 13a
+  num_examples: 5

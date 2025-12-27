@@ -1,0 +1,53 @@
+# Python: 3.10.x (tested on 3.10.12)
+
+# Keep PyPI as the main index, and add PyTorch CUDA 12.4 wheels as extra index.
+--index-url https://pypi.org/simple
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# -------------------------
+# PyTorch (GPU, CUDA 12.4)
+# -------------------------
+torch==2.5.0
+torchvision==0.20.0
+torchaudio==2.5.0
+
+# -------------------------
+# HuggingFace / mT5 runtime
+# -------------------------
+transformers==4.57.3
+tokenizers==0.22.1
+safetensors==0.7.0
+sentencepiece==0.2.1
+huggingface-hub==0.36.0
+accelerate==1.12.0
+datasets==4.4.1
+
+# -------------------------
+# Evaluation (BLEU)
+# -------------------------
+sacrebleu==2.5.1
+
+# -------------------------
+# Training utilities (GRU/Transformer pipeline)
+# -------------------------
+fasttext==0.9.3
+gensim==4.4.0
+
+# -------------------------
+# Common scientific / analysis stack
+# -------------------------
+numpy==1.24.4
+scipy==1.12.0
+pandas==1.5.3
+matplotlib==3.8.4
+scikit-learn==1.2.0
+tqdm==4.67.1
+
+# -------------------------
+# Common utilities
+# -------------------------
+PyYAML==6.0.1
+regex==2023.12.25
+requests==2.32.5
+packaging==23.2
+filelock==3.13.3
