@@ -11,7 +11,19 @@ The intended workflow is:
 1. Train (inside each experiment folder)  
 2. Evaluate on the test set (root `inference.py`)  
 3. Collect model size/parameter stats (root `model_stats.py`)  
-4. Optional interactive translation (`translate_chat.py`)  
+4. Optional interactive translation (`translate_chat.py`)
+
+## Checkpoints (GitHub Releases)
+
+All trained model checkpoints are **not stored in the Git history** (to keep the repo lightweight).
+Instead, they are provided as **Release assets**.
+
+### Download
+
+Go to **Releases** on GitHub and download the checkpoint archives from tag **v1.0`**. 
+
+- Repo: https://github.com/gugu-gaga/Machine-Translation-Experiments-GRU-vs-Transformer-vs-mT5-Fine-tuning-ZH-to-EN
+- Release tag: `v1.0`
 
 ## Environment
 
